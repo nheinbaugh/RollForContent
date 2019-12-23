@@ -1,27 +1,37 @@
-import Button from '@material-ui/core/Button';
+import { createStyles, makeStyles } from '@material-ui/core';
 import React from 'react';
-import './App.css';
-import logo from './logo.svg';
-import Second from './Second';
-import './styles/main.scss';
+import CommandMenu from './layout/CommandMenu';
+import Header from './layout/Header';
+import Workspace from './layout/Workspace';
+import RollProviders from './providers/RollProviders';
+import DefaultTheme from './styles/DefaultTheme';
+
+const menuWidth = '250px';
+
+const useStyles = makeStyles(theme =>
+  createStyles({
+    appContainer: {
+      height: '100vh',
+      width: '100vw'
+    },
+    workspaceContainer: {
+      marginLeft: menuWidth
+    },
+    menuDrawer: {},
+    headerSpacer: theme.mixins.toolbar
+  })
+);
 
 const App: React.FC = () => {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className="home">
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-        <Second />
-        <Button variant="text" color="primary">
-          Sample Button
-        </Button>
-      </header>
-    </div>
+    <RollProviders theme={DefaultTheme}>
+      <div className={classes.appContainer}>
+        <Header />
+        <CommandMenu className={`${classes.menuDrawer} ${classes.headerSpacer}`} menuWidth={menuWidth} />
+        <Workspace className={`${classes.workspaceContainer} ${classes.headerSpacer}`} />
+      </div>
+    </RollProviders>
   );
 };
 
