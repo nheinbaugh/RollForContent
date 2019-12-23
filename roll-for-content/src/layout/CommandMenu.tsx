@@ -10,11 +10,13 @@ import {
   makeStyles,
   useTheme
 } from '@material-ui/core';
+import CategoryIcon from '@material-ui/icons/Category';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Gradient from '@material-ui/icons/Gradient';
-import InboxIcon from '@material-ui/icons/Inbox';
-import MailIcon from '@material-ui/icons/Mail';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import OutdoorGrillIcon from '@material-ui/icons/OutdoorGrill';
+import PaletteIcon from '@material-ui/icons/Palette';
 import React from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 import { routes } from '../providers/RouteProvider';
@@ -83,12 +85,30 @@ const CommandMenu: React.FC<CommandMenuProps> = props => {
           </ListItemIcon>
           <ListItemText primary="Created Content" />
         </ListItem>
-        {['Content', 'Recipes', 'Traits', 'Attribute Values'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItem button component={WrappedLink} key="Recipes" to={routes.recipes}>
+          <ListItemIcon>
+            <OutdoorGrillIcon />
+          </ListItemIcon>
+          <ListItemText primary="Recipes" />
+        </ListItem>
+        <ListItem button component={WrappedLink} key="Traits" to={routes.traits}>
+          <ListItemIcon>
+            <PaletteIcon />
+          </ListItemIcon>
+          <ListItemText primary="Traits" />
+        </ListItem>
+        <ListItem button component={WrappedLink} key="Attribute Values" to={routes.attributes}>
+          <ListItemIcon>
+            <CategoryIcon />
+          </ListItemIcon>
+          <ListItemText primary="Attribute Values" />
+        </ListItem>
+        <ListItem button component={WrappedLink} key="Help" to={routes.help}>
+          <ListItemIcon>
+            <HelpOutlineIcon />
+          </ListItemIcon>
+          <ListItemText primary="Help" />
+        </ListItem>
       </List>
     </Drawer>
   );
