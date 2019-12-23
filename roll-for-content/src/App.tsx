@@ -2,7 +2,7 @@ import { createStyles, makeStyles } from '@material-ui/core';
 import React from 'react';
 import CommandMenu from './layout/CommandMenu';
 import Header from './layout/Header';
-import Workspace from './layout/Workspace';
+import Workspace from './layout/workspace/Workspace';
 import RollProviders from './providers/RollProviders';
 import DefaultTheme from './styles/DefaultTheme';
 

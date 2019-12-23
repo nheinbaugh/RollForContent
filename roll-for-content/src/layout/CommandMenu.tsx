@@ -1,10 +1,13 @@
 import { createStyles, Drawer, List, ListItem, ListItemIcon, ListItemText, makeStyles } from '@material-ui/core';
+import Gradient from '@material-ui/icons/Gradient';
 import InboxIcon from '@material-ui/icons/Inbox';
 import MailIcon from '@material-ui/icons/Mail';
 import React from 'react';
+import { Link, LinkProps } from 'react-router-dom';
+import { routes } from '../providers/RouteProvider';
 import { BaseProps } from '../utils';
 
-const useStyles = makeStyles(
+const useStyles = makeStyles(theme =>
   createStyles({
     root: {
       display: 'flex'
@@ -15,7 +18,8 @@ const useStyles = makeStyles(
     }),
     drawerPaper: (props: CommandMenuProps) => ({
       width: props.menuWidth || '250px'
-    })
+    }),
+    toolbar: theme.mixins.toolbar
   })
 );
 
@@ -25,6 +29,8 @@ interface CommandMenuProps extends BaseProps {
    */
   menuWidth?: string;
 }
+
+const WrappedLink = React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => <Link innerRef={ref} {...props} />);
 
 const CommandMenu: React.FC<CommandMenuProps> = props => {
   const classes = useStyles(props);
@@ -37,7 +43,14 @@ const CommandMenu: React.FC<CommandMenuProps> = props => {
         paper: classes.drawerPaper
       }}
     >
+      <div className={classes.toolbar} />
       <List>
+        <ListItem button component={WrappedLink} key="Created Content" to={routes.content}>
+          <ListItemIcon>
+            <Gradient />
+          </ListItemIcon>
+          <ListItemText primary="Created Content" />
+        </ListItem>
         {['Content', 'Recipes', 'Traits', 'Attribute Values'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>

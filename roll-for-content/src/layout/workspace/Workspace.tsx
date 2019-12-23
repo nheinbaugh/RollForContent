@@ -1,6 +1,7 @@
 import { createStyles, makeStyles } from '@material-ui/core';
 import React from 'react';
-import { BaseProps } from '../utils';
+import RouteProvider from '../../providers/RouteProvider';
+import { BaseProps } from '../../utils';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -12,7 +13,11 @@ const useStyles = makeStyles(theme =>
 
 const Workspace: React.FC<BaseProps> = ({ className }) => {
   const classes = useStyles();
-  return <div className={`${classes.workspaceContainer} ${className}`}>This is the workspace</div>;
+  return (
+    <div className={`${classes.workspaceContainer} ${className}`}>
+      <RouteProvider></RouteProvider>
+    </div>
+  );
 };
 
 export default Workspace;
