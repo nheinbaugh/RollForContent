@@ -1,3 +1,21 @@
+# Roll for Content
+
+This app is for helping to generate things needed for tabletop role playing games like characters, items or places. Users define recipes which are then brewed by the API and displayed for the user. {......}
+
+## Dev Notes
+
+### SCSS
+
+I went with the 7-1 pattern for setting up the style sheets. It's definitely overkill for a side project, but since I've never worked with it (and style sheets are nearly unmanageable in my day job) I wanted to give it a shot. There are details here:
+
+- https://github.com/HugoGiraudel/sass-boilerplate/tree/master/stylesheets
+- https://sass-guidelin.es/#the-7-1-pattern
+- https://scotch.io/tutorials/aesthetic-sass-1-architecture-and-style-organization
+
+Crap.... I really liked the approach for using SCSS, but it seems that the material-ui component wants to use CSS in JS (which I didn't want to try) so I will be attempting to lean into that.
+
+### CSS in JS
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
