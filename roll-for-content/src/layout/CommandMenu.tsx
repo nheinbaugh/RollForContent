@@ -17,22 +17,24 @@ import Gradient from '@material-ui/icons/Gradient';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import OutdoorGrillIcon from '@material-ui/icons/OutdoorGrill';
 import PaletteIcon from '@material-ui/icons/Palette';
+import clsx from 'clsx';
 import React from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 import { routes } from '../providers/RouteProvider';
 import { BaseProps } from '../utils';
 
+const drawerWidth = '250px';
 const useStyles = makeStyles(theme =>
   createStyles({
     root: {
       display: 'flex'
     },
     drawer: (props: CommandMenuProps) => ({
-      width: props.menuWidth || '250px',
+      width: props.menuWidth || drawerWidth,
       flexShrink: 0
     }),
     drawerPaper: (props: CommandMenuProps) => ({
-      width: props.menuWidth || '250px'
+      width: props.menuWidth || drawerWidth
     }),
     drawerHeader: {
       display: 'flex',
@@ -40,6 +42,24 @@ const useStyles = makeStyles(theme =>
       padding: theme.spacing(0, 1),
       ...theme.mixins.toolbar,
       justifyContent: 'flex-end'
+    },
+    drawerOpen: {
+      width: drawerWidth,
+      transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen
+      })
+    },
+    drawerClose: {
+      transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen
+      }),
+      overflowX: 'hidden',
+      width: theme.spacing(7) + 1,
+      [theme.breakpoints.up('sm')]: {
+        width: theme.spacing(9) + 1
+      }
     },
     toolbar: theme.mixins.toolbar
   })
@@ -53,7 +73,7 @@ interface CommandMenuProps extends BaseProps {
 
   isDrawerOpen: boolean;
 
-  closeDrawer: () => void;
+  toggleDrawer: () => void;
 }
 
 const WrappedLink = React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => <Link innerRef={ref} {...props} />);
@@ -64,17 +84,23 @@ const CommandMenu: React.FC<CommandMenuProps> = props => {
 
   return (
     <Drawer
-      className={`${classes.drawer} ${props.className}`}
-      variant="persistent"
+      variant="permanent"
       open={props.isDrawerOpen}
       anchor="left"
+      className={clsx(classes.drawer, props.className, {
+        [classes.drawerOpen]: props.isDrawerOpen,
+        [classes.drawerClose]: !props.isDrawerOpen
+      })}
       classes={{
-        paper: classes.drawerPaper
+        paper: clsx({
+          [classes.drawerOpen]: props.isDrawerOpen,
+          [classes.drawerClose]: !props.isDrawerOpen
+        })
       }}
     >
       <div className={classes.drawerHeader}>
-        <IconButton onClick={props.closeDrawer}>
-          {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+        <IconButton onClick={props.toggleDrawer}>
+          {props.isDrawerOpen ? <ChevronLeftIcon /> : <ChevronRightIcon />}
         </IconButton>
       </div>
       <Divider />

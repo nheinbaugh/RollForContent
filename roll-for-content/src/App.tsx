@@ -25,7 +25,7 @@ const App: React.FC = () => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 
   const openDrawer = () => setDrawerOpen(true);
-  const closeDrawer = () => setDrawerOpen(false);
+  const toggleDrawer = () => setDrawerOpen(!isDrawerOpen);
   return (
     <RollProviders theme={DefaultTheme}>
       <div className={classes.appContainer}>
@@ -34,7 +34,7 @@ const App: React.FC = () => {
           className={`${classes.menuDrawer} ${classes.headerSpacer}`}
           menuWidth={menuWidth}
           isDrawerOpen={isDrawerOpen}
-          closeDrawer={closeDrawer}
+          toggleDrawer={toggleDrawer}
         />
         <Workspace
           className={`${classes.workspaceContainer} ${classes.headerSpacer}`}
