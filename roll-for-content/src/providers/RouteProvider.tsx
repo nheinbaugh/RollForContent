@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import EmptyWorkspace from '../layout/workspace/EmptyWorkspace';
+import { HelpContainer } from '../pages/help/HelpContainer';
 import RecipeContainer from '../pages/recipes/RecipeContainer';
 import UserContentContainer from '../pages/user-content/UserContentContainer';
 
@@ -20,6 +21,9 @@ export const RouteProvider = () => {
       </Route>
       <Route path={routes.recipes}>
         <RecipeContainer />
+      </Route>
+      <Route path={routes.help}>
+        <HelpContainer />
       </Route>
       <EmptyWorkspace />
     </Switch>

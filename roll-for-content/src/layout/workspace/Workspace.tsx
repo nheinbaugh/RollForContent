@@ -23,6 +23,9 @@ const useStyles = makeStyles(theme =>
         duration: theme.transitions.duration.leavingScreen
       })
     }),
+    closedDrawerWorkspace: (props: WorkspaceProps) => ({
+      marginLeft: theme.spacing(7) + 1
+    }),
     workspaceContainerShift: (props: WorkspaceProps) => ({
       transition: theme.transitions.create('margin', {
         easing: theme.transitions.easing.easeOut,
@@ -38,6 +41,7 @@ const Workspace: React.FC<WorkspaceProps> = props => {
   return (
     <div
       className={clsx(classes.workspaceContainer, {
+        [classes.closedDrawerWorkspace]: !props.isDrawerOpen,
         [classes.workspaceContainerShift]: props.isDrawerOpen
       })}
     >
