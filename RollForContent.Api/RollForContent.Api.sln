@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollForContent.GeneratorSer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollForContent.Data", "..\RollForContent.Data\RollForContent.Data.csproj", "{E5F64B85-3EC5-4C91-916A-89E43836C832}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollForContent.Common", "..\RollForContent.Common\RollForContent.Common.csproj", "{FB2E8AF4-201B-4B4B-BD28-99E356F1E582}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{E5F64B85-3EC5-4C91-916A-89E43836C832}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5F64B85-3EC5-4C91-916A-89E43836C832}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5F64B85-3EC5-4C91-916A-89E43836C832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB2E8AF4-201B-4B4B-BD28-99E356F1E582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB2E8AF4-201B-4B4B-BD28-99E356F1E582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB2E8AF4-201B-4B4B-BD28-99E356F1E582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB2E8AF4-201B-4B4B-BD28-99E356F1E582}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
