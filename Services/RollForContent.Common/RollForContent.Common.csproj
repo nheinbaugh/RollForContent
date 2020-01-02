@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RollForContent.Data\RollForContent.Data.csproj" />
+    <PackageReference Include="Autofac" Version="4.9.4" />
   </ItemGroup>
 
 </Project>
