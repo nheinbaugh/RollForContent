@@ -9,8 +9,8 @@
 
         public string Name { get; set; }
 
-        public double MinimumValue { get; set; }
+        public int MinimumValue { get; set; }
 
-        public double MaximumValue { get; set; }
+        public int MaximumValue { get; set; }
     }
 }

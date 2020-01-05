@@ -5,13 +5,21 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RollForContent.Api", "RollForContent.Api.csproj", "{21591174-88CF-4F39-8FB5-7C0CAB61AD4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollForContent.GeneratorService", "..\RollForContent.GeneratorService\RollForContent.GeneratorService.csproj", "{579D20AE-9676-4A61-BFE8-B7BBB3055EC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RollForContent.GeneratorService", "..\RollForContent.GeneratorService\RollForContent.GeneratorService.csproj", "{579D20AE-9676-4A61-BFE8-B7BBB3055EC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollForContent.GeneratorService.Tests", "..\RollForContent.GeneratorService.Tests\RollForContent.GeneratorService.Tests.csproj", "{48FD30FC-0E93-40B0-BB95-F7D4B5AA08D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RollForContent.GeneratorService.Tests", "..\RollForContent.GeneratorService.Tests\RollForContent.GeneratorService.Tests.csproj", "{48FD30FC-0E93-40B0-BB95-F7D4B5AA08D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollForContent.Data", "..\RollForContent.Data\RollForContent.Data.csproj", "{E5F64B85-3EC5-4C91-916A-89E43836C832}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RollForContent.Data", "..\RollForContent.Data\RollForContent.Data.csproj", "{E5F64B85-3EC5-4C91-916A-89E43836C832}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollForContent.Common", "..\RollForContent.Common\RollForContent.Common.csproj", "{FB2E8AF4-201B-4B4B-BD28-99E356F1E582}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RollForContent.Common", "..\RollForContent.Common\RollForContent.Common.csproj", "{FB2E8AF4-201B-4B4B-BD28-99E356F1E582}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{5E1F280A-D8EB-47AA-8D25-68F599C95A66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollForContent.Data.Traits", "..\RollForContent.Data.Traits\RollForContent.Data.Traits.csproj", "{C41D0A93-F408-463C-AD2B-D2D14EF8086C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollForContent.Data.Attribute", "..\RollForContent.Data.Attribute\RollForContent.Data.Attribute.csproj", "{34D3817B-7CEA-4A01-89D8-D8B102011C26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollForContent.Data.Interfaces", "..\RollForContent.Data.Interfaces\RollForContent.Data.Interfaces.csproj", "{F247C6ED-3CDC-4B9B-BDF6-DB274B1E84D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,9 +47,26 @@ Global
 		{FB2E8AF4-201B-4B4B-BD28-99E356F1E582}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB2E8AF4-201B-4B4B-BD28-99E356F1E582}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB2E8AF4-201B-4B4B-BD28-99E356F1E582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C41D0A93-F408-463C-AD2B-D2D14EF8086C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C41D0A93-F408-463C-AD2B-D2D14EF8086C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C41D0A93-F408-463C-AD2B-D2D14EF8086C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C41D0A93-F408-463C-AD2B-D2D14EF8086C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34D3817B-7CEA-4A01-89D8-D8B102011C26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34D3817B-7CEA-4A01-89D8-D8B102011C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34D3817B-7CEA-4A01-89D8-D8B102011C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34D3817B-7CEA-4A01-89D8-D8B102011C26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F247C6ED-3CDC-4B9B-BDF6-DB274B1E84D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F247C6ED-3CDC-4B9B-BDF6-DB274B1E84D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F247C6ED-3CDC-4B9B-BDF6-DB274B1E84D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F247C6ED-3CDC-4B9B-BDF6-DB274B1E84D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C41D0A93-F408-463C-AD2B-D2D14EF8086C} = {5E1F280A-D8EB-47AA-8D25-68F599C95A66}
+		{34D3817B-7CEA-4A01-89D8-D8B102011C26} = {5E1F280A-D8EB-47AA-8D25-68F599C95A66}
+		{F247C6ED-3CDC-4B9B-BDF6-DB274B1E84D3} = {5E1F280A-D8EB-47AA-8D25-68F599C95A66}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DDB75B17-3A59-4DFD-9770-397FFC5C5334}

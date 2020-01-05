@@ -13,6 +13,6 @@ namespace RollForContent.Data
 
         public string RecipeName { get; set; }
 
-        public IList<Attribute> Attributes { get; set; } = new List<Attribute>();
+        public IList<ISelectedAttribute> Attributes { get; set; } = new List<ISelectedAttribute>();
     }
 }
