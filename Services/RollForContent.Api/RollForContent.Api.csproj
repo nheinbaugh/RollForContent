@@ -13,6 +13,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RollForContent.Common\RollForContent.Common.csproj" />
+    <ProjectReference Include="..\RollForContent.Data.Attribute\RollForContent.Data.Attribute.csproj" />
     <ProjectReference Include="..\RollForContent.GeneratorService\RollForContent.GeneratorService.csproj" />
   </ItemGroup>
   <ItemGroup>

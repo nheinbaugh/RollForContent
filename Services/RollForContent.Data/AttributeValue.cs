@@ -2,7 +2,7 @@
 
 namespace RollForContent.Data
 {
-    public class AttributeValue: IBaseEntity
+    public class AttributeSelection: IBaseEntity
     {
         public string Id { get; set; }
 

@@ -4,6 +4,10 @@ using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 using RollForContent.Api;
 using RollForContent.Common;
+using RollForContent.Data.Attribute;
+using RollForContent.Data.Interfaces;
+using RollForContent.GeneratorService;
+using RollForContent.GeneratorService.Interfaces;
 
 [assembly: FunctionsStartup(typeof(RollForContent.Api.Startup))]
 namespace RollForContent.Api
@@ -44,10 +48,14 @@ namespace RollForContent.Api
             //// binding directly to Autofac.
             //var container = containerBuilder.Build();
             //var serviceProvider = new AutofacServiceProvider(container);
-
+            
+            builder.Services.AddLogging();
             builder.Services.AddSingleton(s => { return new GlobalRandom(); });
-            //builder.Services.AddSingleton<INumericalAttributeProcessor, NumericalAttributeProcessor>();
+            builder.Services.AddSingleton<INumericalAttributeProcessor, NumericalAttributeProcessor>();
+            builder.Services.AddSingleton<IAttributeProcessor, AttributeProcessor>();
+            builder.Services.AddSingleton<IRecipeResolver, RecipeResolver>();
 
+            builder.Services.AddSingleton<IAttributeRepository, AttributeRepository>();
         }
     }
 }

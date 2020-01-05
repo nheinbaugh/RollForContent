@@ -5,7 +5,7 @@ using System;
 
 namespace RollForContent.GeneratorService
 {
-    public class RecipeResolver
+    public class RecipeResolver : IRecipeResolver
     {
         private readonly INumericalAttributeProcessor numericalProcessor;
         private readonly IAttributeProcessor attributeProcessor;
@@ -19,7 +19,7 @@ namespace RollForContent.GeneratorService
         public UserContent GenerateContent(Recipe input)
         {
             var content = new UserContent();
-            foreach (var  attr in input.Attributes)
+            foreach (var attr in input.Attributes)
             {
                 var result = this.attributeProcessor.DetermineValue(attr);
                 content.Attributes.Add(result);

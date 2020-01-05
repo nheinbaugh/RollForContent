@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RollForContent.Common\RollForContent.Common.csproj" />
+    <ProjectReference Include="..\RollForContent.Data.Interfaces\RollForContent.Data.Interfaces.csproj" />
     <ProjectReference Include="..\RollForContent.Data\RollForContent.Data.csproj" />
   </ItemGroup>
 

@@ -13,18 +13,19 @@ namespace RollForContent.Api
     public class Generator
     {
         private readonly GlobalRandom random;
+        private readonly ILogger log;
 
-        public Generator(GlobalRandom random)
+        public Generator(GlobalRandom random, ILogger<Generator> log)
         {
             this.random = random;
+            this.log = log;
         }
 
         [FunctionName("Generator")]
-        public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
-            ILogger log)
+        public async Task<IActionResult> GenerateContentFromRecipe(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
+            this.log.LogInformation("C# HTTP trigger function processed a request.");
 
             string name = req.Query["name"];
 
