@@ -22,21 +22,29 @@ namespace RollForContent.GeneratorService
 
         public async Task<SelectedAttribute> DetermineValue(RecipeAttribute input, IEnumerable<string> appliedTags)
         {
-            var values = await this.attributeRepo.GetValuesByAttribute(input.Id, appliedTags);
-
-            // make sure to honor the traits selected in the recipe (not impelemented yet)
-            var possibleValues = values.ToList();
-
-
-            var selection = possibleValues[this.random.Instance.Next(possibleValues.Count)];
-
-            // pull to some factory probably
-            return new SelectedAttribute
+            try
             {
-                Id = Guid.NewGuid().ToString(),
-                Name = input.Name,
-                Value = selection.Value
-            };
+                var values = await this.attributeRepo.GetValuesByAttribute(input.Id, appliedTags);
+
+                // make sure to honor the traits selected in the recipe (not impelemented yet)
+                var possibleValues = values.ToList();
+
+
+                var selection = possibleValues[this.random.Instance.Next(possibleValues.Count)];
+
+                // pull to some factory probably
+                return new SelectedAttribute
+                {
+                    Id = input.Id,
+                    Name = input.Name,
+                    Value = selection.Value
+                };
+            }
+            catch (Exception ex)
+            {
+                ;
+                throw;
+            }
         }
     }
 }

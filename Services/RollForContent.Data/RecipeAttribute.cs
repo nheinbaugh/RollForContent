@@ -16,6 +16,6 @@ namespace RollForContent.Data
         /// <summary>
         /// The list of attributes that must be populated before this attribute can be set
         /// </summary>
-        public ICollection<string> DependentAttributes { get; set; }
+        public ICollection<string> DependentAttributes { get; set; } = new List<string>();
     }
 }

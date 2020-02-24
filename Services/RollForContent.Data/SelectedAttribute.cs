@@ -4,8 +4,19 @@ namespace RollForContent.Data
 {
     public interface ISelectedAttribute
     {
+        /// <summary>
+        /// The ID that is associated with the generating attribute in the database
+        /// </summary>
+        string Id { get; set; }
+
+        /// <summary>
+        /// The friendly name for the attribute 
+        /// </summary>
         string Name { get; set; }
 
+        /// <summary>
+        /// The value that was selected and applied to a given piece of content
+        /// </summary>
         string Value { get; set; }
     }
     /// <summary>
@@ -15,7 +26,6 @@ namespace RollForContent.Data
     {
         public SelectedAttribute()
         {
-            this.Id = Guid.NewGuid().ToString();
         }
 
         /// <summary>

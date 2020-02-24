@@ -23,11 +23,17 @@ namespace RollForContent.Data.Recipes
                         {
                             Id = "first-name",
                             Name = "Name",
+                            DependentAttributes = new List<string> {"gender"}
                         },
                         new RecipeAttribute
                         {
                             Id = "species",
                             Name = "Species",
+                        },
+                        new RecipeAttribute
+                        {
+                            Id = "gender",
+                            Name = "Gender"
                         }
                     }
                 },

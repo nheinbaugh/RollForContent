@@ -24,13 +24,20 @@ namespace RollForContent.Api
         public async Task<IActionResult> GenerateContentFromRecipe(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] ContentGenerationRequest input)
         {
-            this.log.LogInformation("C# HTTP trigger function processed a request.");
-            var bob = JsonConvert.DeserializeObject<ContentGenerationRequest>(JsonConvert.SerializeObject(input));
+            try
+            {
+                this.log.LogInformation("C# HTTP trigger function processed a request.");
+                var bob = JsonConvert.DeserializeObject<ContentGenerationRequest>(JsonConvert.SerializeObject(input));
 
-            var content = await this.recipeResolver.GenerateContent(input.RecipeName, input.AppliedTags);
-            return content != null
-                ? (ActionResult)new OkObjectResult(content)
-                : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
+                var content = await this.recipeResolver.GenerateContent(input.RecipeName, input.AppliedTags);
+                return content != null
+                    ? (ActionResult)new OkObjectResult(content)
+                    : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
+            }
+            catch (System.Exception ex)
+            {
+                throw;
+            }
         }
     }
 }
