@@ -1,42 +1,35 @@
-using System.IO;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using RollForContent.Common;
+using RollForContent.GeneratorService;
+using RollForContent.Models.Requests;
 
 namespace RollForContent.Api
 {
     public class Generator
     {
-        private readonly GlobalRandom random;
+        private readonly IRecipeResolver recipeResolver;
         private readonly ILogger log;
 
-        public Generator(GlobalRandom random, ILogger<Generator> log)
+        public Generator(IRecipeResolver _recipeResolver, ILogger<Generator> log)
         {
-            this.random = random;
+            this.recipeResolver = _recipeResolver;
             this.log = log;
         }
 
         [FunctionName("Generator")]
         public async Task<IActionResult> GenerateContentFromRecipe(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req)
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] ContentGenerationRequest input)
         {
             this.log.LogInformation("C# HTTP trigger function processed a request.");
+            var bob = JsonConvert.DeserializeObject<ContentGenerationRequest>(JsonConvert.SerializeObject(input));
 
-            string name = req.Query["name"];
-
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
-            var firstRnadom = this.random.Instance.Next(1, 5);
-            var secondRandom = this.random.Instance.Next(1, 5);
-
-            return name != null
-                ? (ActionResult)new OkObjectResult($"Hello, {name}, {firstRnadom}, {secondRandom}")
+            var content = await this.recipeResolver.GenerateContent(input.RecipeName, input.AppliedTags);
+            return content != null
+                ? (ActionResult)new OkObjectResult(content)
                 : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
         }
     }

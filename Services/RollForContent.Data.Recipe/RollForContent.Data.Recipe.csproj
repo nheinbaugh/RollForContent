@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>RollForContent.Data.Recipes</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RollForContent.Data.Interfaces\RollForContent.Data.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -3,7 +3,9 @@ using RollForContent.Data;
 using RollForContent.Data.Interfaces;
 using RollForContent.GeneratorService.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace RollForContent.GeneratorService
 {
@@ -18,9 +20,9 @@ namespace RollForContent.GeneratorService
             this.random = _random;
         }
 
-        public SelectedAttribute DetermineValue(RecipeAttribute input)
+        public async Task<SelectedAttribute> DetermineValue(RecipeAttribute input, IEnumerable<string> appliedTags)
         {
-            var values = this.attributeRepo.GetValuesByAttribute(input.Id);
+            var values = await this.attributeRepo.GetValuesByAttribute(input.Id, appliedTags);
 
             // make sure to honor the traits selected in the recipe (not impelemented yet)
             var possibleValues = values.ToList();

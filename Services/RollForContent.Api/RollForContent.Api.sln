@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollForContent.Data.Attribu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollForContent.Data.Interfaces", "..\RollForContent.Data.Interfaces\RollForContent.Data.Interfaces.csproj", "{F247C6ED-3CDC-4B9B-BDF6-DB274B1E84D3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollForContent.Data.Recipe", "..\RollForContent.Data.Recipe\RollForContent.Data.Recipe.csproj", "{F3BD4FBA-F5B1-4B84-BFA3-234B44AC160F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{F247C6ED-3CDC-4B9B-BDF6-DB274B1E84D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F247C6ED-3CDC-4B9B-BDF6-DB274B1E84D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F247C6ED-3CDC-4B9B-BDF6-DB274B1E84D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3BD4FBA-F5B1-4B84-BFA3-234B44AC160F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3BD4FBA-F5B1-4B84-BFA3-234B44AC160F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3BD4FBA-F5B1-4B84-BFA3-234B44AC160F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3BD4FBA-F5B1-4B84-BFA3-234B44AC160F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{C41D0A93-F408-463C-AD2B-D2D14EF8086C} = {5E1F280A-D8EB-47AA-8D25-68F599C95A66}
 		{34D3817B-7CEA-4A01-89D8-D8B102011C26} = {5E1F280A-D8EB-47AA-8D25-68F599C95A66}
 		{F247C6ED-3CDC-4B9B-BDF6-DB274B1E84D3} = {5E1F280A-D8EB-47AA-8D25-68F599C95A66}
+		{F3BD4FBA-F5B1-4B84-BFA3-234B44AC160F} = {5E1F280A-D8EB-47AA-8D25-68F599C95A66}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DDB75B17-3A59-4DFD-9770-397FFC5C5334}

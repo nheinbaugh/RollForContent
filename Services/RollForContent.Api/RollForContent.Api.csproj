@@ -4,16 +4,17 @@
     <AzureFunctionsVersion>v2</AzureFunctionsVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="4.9.4" />
-    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Autofac" Version="5.1.2" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.0.0" />
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Http" Version="3.0.2" />
-    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.31" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.3" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RollForContent.Common\RollForContent.Common.csproj" />
     <ProjectReference Include="..\RollForContent.Data.Attribute\RollForContent.Data.Attribute.csproj" />
+    <ProjectReference Include="..\RollForContent.Data.Recipe\RollForContent.Data.Recipe.csproj" />
     <ProjectReference Include="..\RollForContent.GeneratorService\RollForContent.GeneratorService.csproj" />
   </ItemGroup>
   <ItemGroup>

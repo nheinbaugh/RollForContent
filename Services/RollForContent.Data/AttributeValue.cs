@@ -20,6 +20,6 @@ namespace RollForContent.Data
         /// List of traits that this value is approve for
         /// </summary>
         /// <remarks>This may (should?) get replaced by a real object that inclues a whitelist/blacklist etc</remarks>
-        public IList<string> RelatedTraitIds { get; set; } = new List<string>();
+        public IList<string> RelatedTags { get; set; } = new List<string>();
     }
 }
